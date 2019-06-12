@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cfmoto.bar.code.mapper.CfStorageLocationMapper">
+
+    <select id="getWareHouse" resultType="com.cfmoto.bar.code.model.entity.CfStorageLocation"
+            parameterType="java.util.Map">
+        select
+        site,
+        warehouse,
+        warehouse_description
+        from cf_storage_location
+        where
+        <if test="key != null and key != ''">
+            warehouse like concat(concat('%',#{key},'%')) and
+        </if>
+        site = #{site}
+        group by warehouse,site,warehouse_description
+    </select>
+
+    <select id="getWareHouseBySite" resultType="java.lang.String">
+        select warehouse
+        from cf_storage_location
+        where site = #{site}
+        group by warehouse;
+    </select>
+
+
+</mapper>

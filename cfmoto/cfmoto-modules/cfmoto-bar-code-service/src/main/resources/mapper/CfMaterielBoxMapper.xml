@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cfmoto.bar.code.mapper.CfMaterielBoxMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cfmoto.bar.code.model.entity.CfMaterielBox">
+        <id column="bar_code_id" property="barCodeId" />
+        <result column="bar_code_no" property="barCodeNo" />
+        <result column="sales_order" property="salesOrder" />
+        <result column="document_no" property="documentNo" />
+        <result column="model" property="model" />
+        <result column="weight" property="weight" />
+        <result column="boxing_time" property="boxingTime" />
+        <result column="boxing_user" property="boxingUser" />
+        <result column="type" property="type" />
+        <result column="parent_no" property="parentNo" />
+        <result column="created_by" property="createdBy" />
+        <result column="creation_date" property="creationDate" />
+        <result column="last_updated_by" property="lastUpdatedBy" />
+        <result column="last_update_date" property="lastUpdateDate" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        bar_code_no AS barCodeNo, sales_order AS salesOrder, document_no AS documentNo, model, weight, boxing_time AS boxingTime, boxing_user AS boxingUser, type, parent_no AS parentNo, created_by AS createdBy, creation_date AS creationDate, last_updated_by AS lastUpdatedBy, last_update_date AS lastUpdateDate, bar_code_id AS barCodeId
+    </sql>
+
+    <resultMap id="SelectListResultMap" type="com.cfmoto.bar.code.model.dto.SelectList">
+        <result column="select_key" property="selectKey" />
+        <result column="select_value" property="selectValue" />
+        <result column="select_description" property="selectDescription" />
+    </resultMap>
+
+    <select id="selectAllSalesOrderNo" resultMap="SelectListResultMap">
+        SELECT
+            mb.sales_order as select_key
+        FROM
+            cf_materiel_box	mb
+
+        GROUP BY
+            mb.sales_order
+    </select>
+
+    <select id="selectDocumentNoBySalesOrderNo" resultMap="SelectListResultMap">
+        SELECT
+            mb.document_no as select_key
+        FROM
+            cf_materiel_box mb
+        WHERE
+            mb.sales_order = #{salesOrderNo}
+        GROUP BY
+            mb.document_no
+    </select>
+
+</mapper>

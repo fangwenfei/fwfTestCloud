@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="cfmoto-config" />
+        <module name="cfmoto-gateway" />
+        <module name="cfmoto-common" />
+        <module name="cfmoto-auth" />
+        <module name="cfmoto-upms-service" />
+        <module name="wisdom-common-restapi" />
+        <module name="cfmoto-eureka" />
+        <module name="cfmoto-sap-api" />
+        <module name="cfmoto-bar-code-service" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="cfmoto" target="1.8" />
+      <module name="cfmoto-auth" target="1.8" />
+      <module name="cfmoto-bar-code-service" target="1.8" />
+      <module name="cfmoto-common" target="1.8" />
+      <module name="cfmoto-config" target="1.8" />
+      <module name="cfmoto-eureka" target="1.8" />
+      <module name="cfmoto-gateway" target="1.8" />
+      <module name="cfmoto-modules" target="1.8" />
+      <module name="cfmoto-sap-api" target="1.8" />
+      <module name="cfmoto-upms-service" target="1.8" />
+      <module name="pig" target="1.8" />
+      <module name="pig-auth" target="1.8" />
+      <module name="pig-common" target="1.8" />
+      <module name="pig-eureka" target="1.8" />
+      <module name="pig-gateway" target="1.8" />
+      <module name="pig-modules" target="1.8" />
+      <module name="pig-sso-client-demo" target="1.8" />
+      <module name="pig-upms-service" target="1.8" />
+      <module name="pigx-codegen" target="1.5" />
+      <module name="pigx-config" target="1.8" />
+      <module name="pigx-visual" target="1.8" />
+      <module name="springBoot-activiti" target="1.6" />
+      <module name="springboot.activiti" target="1.6" />
+      <module name="wisdom" target="1.8" />
+      <module name="wisdom-common-restapi" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="cfmoto-sap-api" options="-extdirs E:\fwfTool\Svn\cfmoto\code\cfmoto\cfmoto-modules\cfmoto-sap-api/lib" />
+    </option>
+  </component>
+</project>

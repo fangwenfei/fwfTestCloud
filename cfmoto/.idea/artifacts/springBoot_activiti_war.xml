@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="springBoot-activiti:war">
+    <output-path>$PROJECT_DIR$/pigx-visual/springBoot-activiti/target</output-path>
+    <root id="archive" name="springboot.activiti.war">
+      <element id="artifact" artifact-name="springBoot-activiti:war exploded" />
+    </root>
+  </artifact>
+</component>

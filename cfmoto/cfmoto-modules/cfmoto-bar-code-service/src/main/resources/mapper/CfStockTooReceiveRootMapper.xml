@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cfmoto.bar.code.mapper.CfStockTooReceiveRootMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cfmoto.bar.code.model.entity.CfStockTooReceiveRoot">
+        <id column="stock_root_id" property="stockRootId" />
+        <result column="stock_list_no" property="stockListNo" />
+        <result column="product_line" property="productLine" />
+        <result column="car_model" property="carModel" />
+        <result column="number" property="number" />
+        <result column="stock_date" property="stockDate" />
+        <result column="created_by" property="createdBy" />
+        <result column="creation_date" property="creationDate" />
+        <result column="last_updated_by" property="lastUpdatedBy" />
+        <result column="last_updated_date" property="lastUpdatedDate" />
+        <result column="stock_function_type" property="stockFunctionType" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        stock_root_id AS stockRootId, stock_list_no AS stockListNo, product_line AS productLine, car_model AS carModel, number, stock_date AS stockDate, created_by AS createdBy, creation_date AS creationDate, last_updated_by AS lastUpdatedBy, last_updated_date AS lastUpdatedDate, stock_function_type AS stockFunctionType
+    </sql>
+
+</mapper>

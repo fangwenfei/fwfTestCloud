@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cfmoto.bar.code.mapper.CfKtmReceivingOrderMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cfmoto.bar.code.model.entity.CfKtmReceivingOrder">
+        <id column="ktm_receiving_id" property="ktmReceivingId" />
+        <result column="purchase_order_no" property="purchaseOrderNo" />
+        <result column="supplier" property="supplier" />
+        <result column="materials_no" property="materialsNo" />
+        <result column="materials_name" property="materialsName" />
+        <result column="frame_no" property="frameNo" />
+        <result column="engine_no" property="engineNo" />
+        <result column="ktm_receiving_date" property="ktmReceivingDate" />
+        <result column="object_version_number" property="objectVersionNumber" />
+        <result column="created_by" property="createdBy" />
+        <result column="creation_date" property="creationDate" />
+        <result column="last_updated_by" property="lastUpdatedBy" />
+        <result column="last_update_date" property="lastUpdateDate" />
+        <result column="batch_no" property="batchNo" />
+        <result column="bar_code_number" property="barCodeNumber" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        ktm_receiving_id AS ktmReceivingId,batch_no AS batchNo,bar_code_number AS barCodeNumber, purchase_order_no AS purchaseOrderNo, supplier, materials_no AS materialsNo, materials_name AS materialsName, frame_no AS frameNo, engine_no AS engineNo, ktm_receiving_date AS ktmReceivingDate, object_version_number AS objectVersionNumber, created_by AS createdBy, creation_date AS creationDate, last_updated_by AS lastUpdatedBy, last_update_date AS lastUpdateDate
+    </sql>
+
+</mapper>

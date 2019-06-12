@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cfmoto.bar.code.mapper.CfBarcodeInventoryMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cfmoto.bar.code.model.entity.CfBarcodeInventory">
+        <id column="barcode_inventory_id" property="barcodeInventoryId" />
+        <result column="barcode" property="barcode" />
+        <result column="barcode_type" property="barcodeType" />
+        <result column="materials_no" property="materialsNo" />
+        <result column="materials_name" property="materialsName" />
+        <result column="warehouse_position" property="warehousePosition" />
+        <result column="warehouse" property="warehouse" />
+        <result column="storage_area" property="storageArea" />
+        <result column="bar_code_number" property="barCodeNumber" />
+        <result column="production_task_order" property="productionTaskOrder" />
+        <result column="state" property="state" />
+        <result column="mode" property="mode" />
+        <result column="batch_no" property="batchNo" />
+        <result column="car_model" property="carModel" />
+        <result column="printing_date" property="printingDate" />
+        <result column="printing_by" property="printingBy" />
+        <result column="created_by" property="createdBy" />
+        <result column="creation_date" property="creationDate" />
+        <result column="last_updated_by" property="lastUpdatedBy" />
+        <result column="last_update_date" property="lastUpdateDate" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        barcode_inventory_id AS barcodeInventoryId, barcode, barcode_type AS barcodeType, materials_no AS materialsNo, materials_name AS materialsName, warehouse_position AS warehousePosition, warehouse, storage_area AS storageArea, bar_code_number AS barCodeNumber, production_task_order AS productionTaskOrder, state, mode, batch_no AS batchNo, car_model AS carModel, printing_date AS printingDate, printing_by AS printingBy, created_by AS createdBy, creation_date AS creationDate, last_updated_by AS lastUpdatedBy, last_update_date AS lastUpdateDate
+    </sql>
+
+    <update id="reduceInventoryQtyByBarcode">
+        update cf_barcode_inventory set bar_code_number= bar_code_number - #{qty},last_updated_by=#{userId},last_update_date=#{lastUpdateDate}
+        where barcode=#{ barcode }
+    </update>
+
+    <!--批量减少库存数量-->
+    <update id="reduceInventoryQtyByBarcodeList" parameterType="java.util.List">
+
+        <foreach collection="list" item="item" index="index" open="" close="" separator=";">
+            update cf_barcode_inventory set bar_code_number= bar_code_number - #{item.qty},last_updated_by=#{item.userId},last_update_date=#{item.lastUpdateDate}
+            where barcode=#{ item.barcode }
+        </foreach>
+
+    </update>
+
+</mapper>

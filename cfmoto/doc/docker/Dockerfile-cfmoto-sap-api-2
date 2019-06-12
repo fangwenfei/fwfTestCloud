@@ -1,0 +1,11 @@
+FROM java:8-jre
+MAINTAINER Cfmoto fangwenfei<1334225082>
+
+ADD ./jar/cfmoto-sap-api-1.3.1.jar /app/
+
+COPY libsapjco3.so /app/libsapjco3.so
+RUN chmod a+x -R  /app/libsapjco3.so
+CMD ["java", "-Xmx1000m", "-jar","-Djava.library.path=/app","/app/cfmoto-sap-api-1.3.1.jar"]
+RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+RUN echo 'Asia/Shanghai' >/etc/timezone
+EXPOSE 9208

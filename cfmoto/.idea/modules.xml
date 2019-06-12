@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/cfmoto.iml" filepath="$PROJECT_DIR$/cfmoto.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cfmoto-auth/cfmoto-auth.iml" filepath="$PROJECT_DIR$/cfmoto-auth/cfmoto-auth.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cfmoto-modules/cfmoto-bar-code-service/cfmoto-bar-code-service.iml" filepath="$PROJECT_DIR$/cfmoto-modules/cfmoto-bar-code-service/cfmoto-bar-code-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cfmoto-common/cfmoto-common.iml" filepath="$PROJECT_DIR$/cfmoto-common/cfmoto-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cfmoto-config/cfmoto-config.iml" filepath="$PROJECT_DIR$/cfmoto-config/cfmoto-config.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cfmoto-eureka/cfmoto-eureka.iml" filepath="$PROJECT_DIR$/cfmoto-eureka/cfmoto-eureka.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cfmoto-gateway/cfmoto-gateway.iml" filepath="$PROJECT_DIR$/cfmoto-gateway/cfmoto-gateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cfmoto-modules/cfmoto-modules.iml" filepath="$PROJECT_DIR$/cfmoto-modules/cfmoto-modules.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cfmoto-modules/cfmoto-sap-api/cfmoto-sap-api.iml" filepath="$PROJECT_DIR$/cfmoto-modules/cfmoto-sap-api/cfmoto-sap-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cfmoto-modules/cfmoto-upms-service/cfmoto-upms-service.iml" filepath="$PROJECT_DIR$/cfmoto-modules/cfmoto-upms-service/cfmoto-upms-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wisdom/wisdom-common-restapi/wisdom-common-restapi.iml" filepath="$PROJECT_DIR$/wisdom/wisdom-common-restapi/wisdom-common-restapi.iml" />
+    </modules>
+  </component>
+</project>

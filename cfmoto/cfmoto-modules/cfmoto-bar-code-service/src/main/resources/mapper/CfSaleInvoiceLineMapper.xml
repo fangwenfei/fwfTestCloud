@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cfmoto.bar.code.mapper.CfSaleInvoiceLineMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cfmoto.bar.code.model.entity.CfSaleInvoiceLine">
+        <id column="invoice_line_id" property="invoiceLineId" />
+        <result column="invoice_id" property="invoiceId" />
+        <result column="material_name" property="materialName" />
+        <result column="material_code" property="materialCode" />
+        <result column="bar_code_no" property="barCodeNo" />
+        <result column="mode" property="mode" />
+        <result column="batch_no" property="batchNo" />
+        <result column="bar_code_number" property="barCodeNumber" />
+        <result column="warehouse_position" property="warehousePosition" />
+        <result column="warehouse" property="warehouse" />
+        <result column="cabinet_no" property="cabinetNo" />
+        <result column="container_seal_no" property="containerSealNo" />
+        <result column="waybill_no" property="waybillNo" />
+        <result column="created_by" property="createdBy" />
+        <result column="creation_date" property="creationDate" />
+        <result column="last_updated_by" property="lastUpdatedBy" />
+        <result column="last_update_date" property="lastUpdateDate" />
+        <result column="invoice_root_id" property="invoiceRootId" />
+        <result column="other_table_id" property="otherTableId" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        invoice_line_id AS invoiceLineId,otherTableId as otherTableId , invoice_id AS invoiceId,invoice_root_id AS invoiceRootId, material_name AS materialName, material_code AS materialCode, bar_code_no AS barCodeNo, mode, batch_no AS batchNo, bar_code_number AS barCodeNumber, warehouse_position AS warehousePosition, warehouse, cabinet_no AS cabinetNo, container_seal_no AS containerSealNo, waybill_no AS waybillNo, created_by AS createdBy, creation_date AS creationDate, last_updated_by AS lastUpdatedBy, last_update_date AS lastUpdateDate
+    </sql>
+
+    <update id="updateSubtractBarCodeNumber">
+        UPDATE cf_barcode_inventory m
+        SET m.bar_code_number = m.bar_code_number - #{barCodeNumber}
+        WHERE
+            m.barcode_inventory_id = #{otherTableId}
+    </update>
+
+</mapper>

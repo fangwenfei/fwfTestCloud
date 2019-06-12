@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cfmoto.bar.code.mapper.CfDeliverGoodsScanMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cfmoto.bar.code.model.entity.CfDeliverGoodsScan">
+        <id column="deliver_goods_scan_id" property="deliverGoodsScanId" />
+        <result column="deliver_goods_sum_id_ref" property="deliverGoodsSumIdRef" />
+        <result column="row_item" property="rowItem" />
+        <result column="deliver_goods_id_ref" property="deliverGoodsIdRef" />
+        <result column="case_no" property="caseNo" />
+        <result column="created_by" property="createdBy" />
+        <result column="creation_date" property="creationDate" />
+        <result column="last_updated_by" property="lastUpdatedBy" />
+        <result column="last_update_date" property="lastUpdateDate" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        deliver_goods_scan_id AS deliverGoodsScanId, deliver_goods_sum_id_ref AS deliverGoodsSumIdRef, row_item AS rowItem, deliver_goods_id_ref AS deliverGoodsIdRef, case_no AS caseNo, created_by AS createdBy, creation_date AS creationDate, last_updated_by AS lastUpdatedBy, last_update_date AS lastUpdateDate
+    </sql>
+
+    <insert id="insert" parameterType="com.cfmoto.bar.code.model.entity.CfDeliverGoodsScan">
+        insert into cf_deliver_goods_scan ( deliver_goods_scan_id,deliver_goods_sum_id_ref,row_item,deliver_goods_id_ref,case_no,
+        created_by,creation_date,last_updated_by,last_update_date )
+        values( #{deliverGoodsScanId},#{deliverGoodsSumIdRef},#{rowItem},#{deliverGoodsIdRef},#{caseNo},#{createdBy},#{creationDate},
+        #{lastUpdatedBy},#{lastUpdateDate} )
+    </insert>
+
+</mapper>

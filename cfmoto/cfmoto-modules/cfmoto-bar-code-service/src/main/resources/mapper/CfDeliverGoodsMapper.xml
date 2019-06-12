@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cfmoto.bar.code.mapper.CfDeliverGoodsMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cfmoto.bar.code.model.entity.CfDeliverGoods">
+        <id column="deliver_goods_id" property="deliverGoodsId" />
+        <result column="order_no" property="orderNo" />
+        <result column="status" property="status" />
+        <result column="sale_order" property="saleOrder" />
+        <result column="customer" property="customer" />
+        <result column="order_date" property="orderDate" />
+        <result column="created_by" property="createdBy" />
+        <result column="creation_date" property="creationDate" />
+        <result column="last_updated_by" property="lastUpdatedBy" />
+        <result column="last_update_date" property="lastUpdateDate" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        deliver_goods_id AS deliverGoodsId, order_no AS orderNo, status, sale_order AS saleOrder, customer, order_date AS orderDate, created_by AS createdBy, creation_date AS creationDate, last_updated_by AS lastUpdatedBy, last_update_date AS lastUpdateDate
+    </sql>
+
+    <!-- 部品发货数据 -->
+    <resultMap id="DeliverGoodsFullVo" type="com.cfmoto.bar.code.model.vo.DeliverGoodsFullVo">
+        <id column="deliver_goods_id" property="deliverGoodsId" />
+        <result column="order_no" property="orderNo" />
+        <result column="status" property="status" />
+        <result column="sale_order" property="saleOrder" />
+        <result column="customer" property="customer" />
+        <result column="order_date" property="orderDate" />
+        <result column="created_by" property="createdBy" />
+        <result column="creation_date" property="creationDate" />
+        <result column="last_updated_by" property="lastUpdatedBy" />
+        <result column="last_update_date" property="lastUpdateDate" />
+        <collection property="cfDeliverGoodsSumList" ofType="com.cfmoto.bar.code.model.entity.CfDeliverGoodsSum" select="getDeliverGoodsSumByRef" column="{ deliverGoodsId=deliver_goods_id }"></collection>
+        <collection property="cfDeliverGoodsScanList" ofType="com.cfmoto.bar.code.model.entity.CfDeliverGoodsScan" select="getDeliverGoodsScanByUserIdAndRef" column="{ deliverGoodsId=deliver_goods_id,userId=scanUserId }"></collection>
+    </resultMap>
+
+    <insert id="customInsert" parameterType="com.cfmoto.bar.code.model.entity.CfDeliverGoods">
+        insert into cf_deliver_goods( deliver_goods_id, order_no, `status`, sale_order, customer, created_by, creation_date, last_updated_by, last_update_date )
+        values( #{ deliverGoodsId },#{ orderNo },#{ status },#{ saleOrder },#{ customer },#{ createdBy },#{ creationDate },#{ lastUpdatedBy },#{ lastUpdateDate } )
+    </insert>
+
+    <!--获取部品发货表表数据-->
+    <select id="getDeliverGoodsFullVoByIdAndUserId" resultMap="DeliverGoodsFullVo">
+
+        select * ,#{ userId } as scanUserId from cf_deliver_goods where deliver_goods_id=#{ deliverGoodsId }
+    </select>
+
+    <!--获取部品发货汇总表数据-->
+    <select id="getDeliverGoodsSumByRef" resultType="com.cfmoto.bar.code.model.entity.CfDeliverGoodsSum">
+
+        select * from cf_deliver_goods_sum where deliver_goods_id_ref=#{ deliverGoodsId }
+    </select>
+
+    <!--获取部品发货扫描表数据-->
+    <select id="getDeliverGoodsScanByUserIdAndRef" resultType="com.cfmoto.bar.code.model.entity.CfDeliverGoodsScan">
+
+        select * from cf_deliver_goods_scan where deliver_goods_id_ref=#{ deliverGoodsId } and created_by=#{ userId }
+    </select>
+
+</mapper>

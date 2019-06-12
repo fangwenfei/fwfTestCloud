@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cfmoto.bar.code.mapper.CfProductPickedHandoverScanRecordMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cfmoto.bar.code.model.entity.CfProductPickedHandoverScanRecord">
+        <id column="product_picked_handover_scan_record_id" property="productPickedHandoverScanRecordId" />
+        <result column="stock_list_no" property="stockListNo" />
+        <result column="materials_name" property="materialsName" />
+        <result column="materials_no" property="materialsNo" />
+        <result column="spec" property="spec" />
+        <result column="barcode" property="barcode" />
+        <result column="repository" property="repository" />
+        <result column="storage_area" property="storageArea" />
+        <result column="batch_no" property="batchNo" />
+        <result column="number" property="number" />
+        <result column="created_by" property="createdBy" />
+        <result column="creation_date" property="creationDate" />
+        <result column="last_updated_by" property="lastUpdatedBy" />
+        <result column="last_updated_date" property="lastUpdatedDate" />
+        <result column="stock_list_id" property="stockListId" />
+        <result column="stock_inventory_id" property="stockInventoryId" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        product_picked_handover_scan_record_id AS productPickedHandoverScanRecordId, stock_list_no AS stockListNo, materials_name AS materialsName, materials_no AS materialsNo, spec, barcode, repository, storage_area AS storageArea, batch_no AS batchNo, number, created_by AS createdBy, creation_date AS creationDate, last_updated_by AS lastUpdatedBy, last_updated_date AS lastUpdatedDate, stock_list_id AS stockListId, stock_inventory_id AS stockInventoryId
+    </sql>
+
+</mapper>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cfmoto.bar.code.mapper.CfPartsPurchaseOrderMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cfmoto.bar.code.model.entity.CfPartsPurchaseOrder">
+        <id column="purchase_order_id" property="purchaseOrderId" />
+        <result column="purchase_order_no" property="purchaseOrderNo" />
+        <result column="materials_no" property="materialsNo" />
+        <result column="materials_name" property="materialsName" />
+        <result column="depository" property="depository" />
+        <result column="order_number" property="orderNumber" />
+        <result column="received_number" property="receivedNumber" />
+        <result column="company" property="company" />
+        <result column="supplier" property="supplier" />
+        <result column="company_code" property="companyCode" />
+        <result column="purchasing_organization" property="purchasingOrganization" />
+        <result column="purchasing_group" property="purchasingGroup" />
+        <result column="item_category" property="itemCategory" />
+        <result column="scheduled_time" property="scheduledTime" />
+        <result column="document_date" property="documentDate" />
+        <result column="object_version_number" property="objectVersionNumber" />
+        <result column="created_by" property="createdBy" />
+        <result column="creation_date" property="creationDate" />
+        <result column="last_updated_by" property="lastUpdatedBy" />
+        <result column="last_update_date" property="lastUpdateDate" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        purchase_order_id AS purchaseOrderId, purchase_order_no AS purchaseOrderNo, materials_no AS materialsNo, materials_name AS materialsName, depository, order_number AS orderNumber, received_number AS receivedNumber, company, supplier, company_code AS companyCode, purchasing_organization AS purchasingOrganization, purchasing_group AS purchasingGroup, item_category AS itemCategory, scheduled_time AS scheduledTime, document_date AS documentDate, object_version_number AS objectVersionNumber, created_by AS createdBy, creation_date AS creationDate, last_updated_by AS lastUpdatedBy, last_update_date AS lastUpdateDate
+    </sql>
+
+</mapper>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cfmoto.bar.code.mapper.CfCabinetMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cfmoto.bar.code.model.entity.CfCabinet">
+        <id column="cabinet_id" property="cabinetId" />
+        <result column="cabinet_no" property="cabinetNo" />
+        <result column="send_goods_no" property="sendGoodsNo" />
+        <result column="sales_order" property="salesOrder" />
+        <result column="real_cabinet_no" property="realCabinetNo" />
+        <result column="container_seal_no" property="containerSealNo" />
+        <result column="bar_code_no" property="barCodeNo" />
+        <result column="created_by" property="createdBy" />
+        <result column="creation_date" property="creationDate" />
+        <result column="last_updated_by" property="lastUpdatedBy" />
+        <result column="last_update_date" property="lastUpdateDate" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        cabinet_id AS cabinetId, cabinet_no AS cabinetNo, send_goods_no AS sendGoodsNo, sales_order AS salesOrder, real_cabinet_no AS realCabinetNo, container_seal_no AS containerSealNo, bar_code_no AS barCodeNo, created_by AS createdBy, creation_date AS creationDate, last_updated_by AS lastUpdatedBy, last_update_date AS lastUpdateDate
+    </sql>
+
+</mapper>

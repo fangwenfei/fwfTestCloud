@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cfmoto.bar.code.mapper.CfStockSplitMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cfmoto.bar.code.model.entity.CfStockSplit">
+        <id column="split_id" property="splitId" />
+        <result column="stock_list_no" property="stockListNo" />
+        <result column="materials_no" property="materialsNo" />
+        <result column="batch_no_text" property="batchNoText" />
+        <result column="split_no" property="splitNo" />
+        <result column="flag" property="flag" />
+        <result column="created_by" property="createdBy" />
+        <result column="creation_date" property="creationDate" />
+        <result column="last_updated_by" property="lastUpdatedBy" />
+        <result column="last_update_date" property="lastUpdateDate" />
+        <result column="split_parent_id" property="splitParentId" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        split_id AS splitId, stock_list_no AS stockListNo, materials_no AS materialsNo, batch_no_text AS batchNoText, split_no AS splitNo, flag, created_by AS createdBy, creation_date AS creationDate, last_updated_by AS lastUpdatedBy, last_update_date AS lastUpdateDate, split_parent_id AS splitParentId
+    </sql>
+
+</mapper>

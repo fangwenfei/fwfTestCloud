@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cfmoto.bar.code.mapper.CfReportWorkRecordMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cfmoto.bar.code.model.entity.CfReportWorkRecord">
+        <id column="report_work_record_id" property="reportWorkRecordId"/>
+        <result column="barcode" property="barcode"/>
+        <result column="barcode_type" property="barcodeType"/>
+        <result column="production_task_order" property="productionTaskOrder"/>
+        <result column="work_number" property="workNumber"/>
+        <result column="created_by" property="createdBy"/>
+        <result column="creation_date" property="creationDate"/>
+        <result column="last_updated_by" property="lastUpdatedBy"/>
+        <result column="last_update_date" property="lastUpdateDate"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        report_work_record_id AS reportWorkRecordId, barcode, barcode_type AS barcodeType, production_task_order AS productionTaskOrder, work_number AS workNumber, created_by AS createdBy, creation_date AS creationDate, last_updated_by AS lastUpdatedBy, last_update_date AS lastUpdateDate
+    </sql>
+
+
+    <!-- 根据生产订单号查询对应数据条数 -->
+    <select id="getTotalByProductTaskOrder" resultType="java.lang.Integer">
+        select count(*)
+        from cf_report_work_record
+        where production_task_order = #{productTaskOrder}
+    </select>
+
+</mapper>

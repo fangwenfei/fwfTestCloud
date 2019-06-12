@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cfmoto.bar.code.mapper.CfOrderSumTempMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cfmoto.bar.code.model.entity.CfOrderSumTemp">
+        <id column="order_sum_temp_id" property="orderSumTempId" />
+        <result column="order_temp_id_ref" property="orderTempIdRef" />
+        <result column="row_item" property="rowItem" />
+        <result column="item" property="item" />
+        <result column="item_desc" property="itemDesc" />
+        <result column="item_purpose" property="itemPurpose" />
+        <result column="quantity" property="quantity" />
+        <result column="mode" property="mode" />
+        <result column="demand_qty" property="demandQty" />
+        <result column="storage_location" property="storageLocation" />
+        <result column="storage_area" property="storageArea" />
+        <result column="payable_qty" property="payableQty" />
+        <result column="output_qty" property="outputQty" />
+        <result column="created_by" property="createdBy" />
+        <result column="creation_date" property="creationDate" />
+        <result column="last_updated_by" property="lastUpdatedBy" />
+        <result column="last_update_date" property="lastUpdateDate" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        order_sum_temp_id AS orderSumTempId, order_temp_id_ref AS orderTempIdRef, row_item AS rowItem, item, item_desc AS itemDesc, item_purpose AS itemPurpose, quantity, mode, demand_qty AS demandQty, storage_location AS storageLocation, storage_area AS storageArea, payable_qty AS payableQty, output_qty AS outputQty, created_by AS createdBy, creation_date AS creationDate, last_updated_by AS lastUpdatedBy, last_update_date AS lastUpdateDate
+    </sql>
+
+    <insert id="insertDataByBatch" parameterType = "java.util.List">
+        insert into cf_order_sum_temp ( order_sum_temp_id, order_temp_id_ref, row_item, item, item_desc, item_purpose, quantity, mode, demand_qty,
+        storage_location,storage_area, payable_qty, output_qty, created_by, creation_date, last_updated_by, last_update_date )
+        VALUES
+        <foreach collection="list" index="index" item="item" separator=",">
+            (#{item.orderSumTempId}, #{item.orderTempIdRef}, #{item.rowItem}, #{item.item}, #{item.itemDesc},
+            #{item.itemPurpose}, #{item.quantity}, #{item.mode}, #{item.demandQty}, #{item.storageLocation},
+            #{item.storageArea}, #{item.payableQty}, #{item.outputQty}, #{item.createdBy}, #{item.creationDate},
+            #{item.lastUpdatedBy}, #{item.lastUpdateDate})
+        </foreach>
+    </insert>
+
+</mapper>

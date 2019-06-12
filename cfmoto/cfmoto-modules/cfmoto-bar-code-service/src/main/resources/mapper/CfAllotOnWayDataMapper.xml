@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cfmoto.bar.code.mapper.CfAllotOnWayDataMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cfmoto.bar.code.model.entity.CfAllotOnWayData">
+        <id column="allot_on_way_data_id" property="allotOnWayDataId" />
+        <result column="order_no" property="orderNo" />
+        <result column="materials_name" property="materialsName" />
+        <result column="materials_no" property="materialsNo" />
+        <result column="spec" property="spec" />
+        <result column="barcode" property="barcode" />
+        <result column="barcode_type" property="barcodeType" />
+        <result column="batch_no" property="batchNo" />
+        <result column="number" property="number" />
+        <result column="allot_out_warehouse" property="allotOutWarehouse" />
+        <result column="allot_in_warehouse" property="allotInWarehouse" />
+        <result column="print_number" property="printNumber" />
+        <result column="allot_in_number" property="allotInNumber" />
+        <result column="created_by" property="createdBy" />
+        <result column="creation_date" property="creationDate" />
+        <result column="last_updated_by" property="lastUpdatedBy" />
+        <result column="last_update_date" property="lastUpdateDate" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        allot_on_way_data_id AS allotOnWayDataId, order_no AS orderNo, materials_name AS materialsName, materials_no AS materialsNo, spec, barcode, barcode_type AS barcodeType, batch_no AS batchNo, number, allot_out_warehouse AS allotOutWarehouse, allot_in_warehouse AS allotInWarehouse, print_number AS printNumber, allot_in_number AS allotInNumber, created_by AS createdBy, creation_date AS creationDate, last_updated_by AS lastUpdatedBy, last_update_date AS lastUpdateDate
+    </sql>
+
+</mapper>

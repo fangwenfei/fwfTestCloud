@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cfmoto.bar.code.mapper.CfAllotScanRecordMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cfmoto.bar.code.model.entity.CfAllotScanRecord">
+        <id column="allot_scan_record_id" property="allotScanRecordId" />
+        <result column="order_no" property="orderNo" />
+        <result column="sale_order_no" property="saleOrderNo" />
+        <result column="operate_type" property="operateType" />
+        <result column="materials_name" property="materialsName" />
+        <result column="materials_no" property="materialsNo" />
+        <result column="spec" property="spec" />
+        <result column="barcode" property="barcode" />
+        <result column="pack_no" property="packNo" />
+        <result column="barcode_type" property="barcodeType" />
+        <result column="batch_no" property="batchNo" />
+        <result column="number" property="number" />
+        <result column="warehouse" property="warehouse" />
+        <result column="storage_area" property="storageArea" />
+        <result column="warehouse_position" property="warehousePosition" />
+        <result column="state" property="state" />
+        <result column="allot_in_warehouse" property="allotInWarehouse" />
+        <result column="case_no" property="caseNo" />
+        <result column="length" property="length" />
+        <result column="width" property="width" />
+        <result column="height" property="height" />
+        <result column="rough_weight" property="roughWeight" />
+        <result column="send_waybill_no" property="sendWaybillNo" />
+        <result column="express_company" property="expressCompany" />
+        <result column="supplier" property="supplier" />
+        <result column="allot_info_id" property="allotInfoId" />
+        <result column="allot_inventory_id" property="allotInventoryId" />
+        <result column="created_by" property="createdBy" />
+        <result column="creation_date" property="creationDate" />
+        <result column="last_updated_by" property="lastUpdatedBy" />
+        <result column="last_update_date" property="lastUpdateDate" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        allot_scan_record_id AS allotScanRecordId, order_no AS orderNo, sale_order_no AS saleOrderNo, operate_type AS operateType, materials_name AS materialsName, materials_no AS materialsNo, spec, barcode, pack_no AS packNo, barcode_type AS barcodeType, batch_no AS batchNo, number, warehouse, storage_area AS storageArea, warehouse_position AS warehousePosition, state, allot_in_warehouse AS allotInWarehouse, case_no AS caseNo, length, width, height, rough_weight AS roughWeight, send_waybill_no AS sendWaybillNo, express_company AS expressCompany, supplier, allot_info_id AS allotInfoId, allot_inventory_id AS allotInventoryId, created_by AS createdBy, creation_date AS creationDate, last_updated_by AS lastUpdatedBy, last_update_date AS lastUpdateDate
+    </sql>
+
+    <!--批量更新扫描表数据，一次执行多条update语句-->
+    <update id="batchUpdateScan" parameterType="java.util.List">
+        <foreach collection="list" item="item" index="index" open="" close="" separator=";">
+          update cf_allot_scan_record
+            <set>
+                <if test="item.length !=null">
+                    length = #{item.length,jdbcType=DOUBLE},
+                </if>
+                <if test="item.width !=null">
+                    width = #{item.width,jdbcType=DOUBLE},
+                </if>
+                <if test="item.height !=null">
+                    height = #{item.height,jdbcType=DOUBLE},
+                </if>
+                <if test="item.roughWeight !=null">
+                    rough_weight = #{item.roughWeight,jdbcType=DOUBLE},
+                </if>
+                <if test="item.sendWaybillNo !=null">
+                    send_waybill_no = #{item.sendWaybillNo,jdbcType=VARCHAR},
+                </if>
+                <if test="item.expressCompany !=null">
+                    express_company = #{item.expressCompany,jdbcType=VARCHAR}
+                </if>
+                <if test="item.lastUpdatedBy !=null">
+                    last_updated_by = #{item.lastUpdatedBy,jdbcType=INTEGER}
+                </if>
+                <if test="item.lastUpdateDate !=null">
+                    last_update_date = #{item.lastUpdateDate}
+                </if>
+            </set>
+            where allot_scan_record_id = #{item.allotScanRecordId,jdbcType=INTEGER}
+        </foreach>
+    </update>
+
+</mapper>

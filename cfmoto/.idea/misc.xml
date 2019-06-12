@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/pigx-visual/springBoot-activiti" />
+  </component>
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/wisdom/pom.xml" />
+        <option value="$PROJECT_DIR$/wisdom/wisdom-common-restapi/pom.xml" />
+        <option value="$PROJECT_DIR$/pigx-visual/pom.xml" />
+        <option value="$PROJECT_DIR$/cfmoto-config/pom.xml" />
+        <option value="$PROJECT_DIR$/cfmoto-auth/pom.xml" />
+        <option value="$PROJECT_DIR$/cfmoto-gateway/pom.xml" />
+        <option value="$PROJECT_DIR$/cfmoto-common/pom.xml" />
+        <option value="$PROJECT_DIR$/cfmoto-modules/pom.xml" />
+        <option value="$PROJECT_DIR$/cfmoto-modules/cfmoto-upms-service/pom.xml" />
+        <option value="$PROJECT_DIR$/cfmoto-modules/cfmoto-bar-code-service/pom.xml" />
+        <option value="$PROJECT_DIR$/cfmoto-modules/cfmoto-sap-api/pom.xml" />
+      </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/cfmoto-modules/pig-sso-client-demo/pom.xml" />
+        <option value="$PROJECT_DIR$/pig-gateway/pom.xml" />
+        <option value="$PROJECT_DIR$/pigx-visual/pigx-codegen/pom.xml" />
+        <option value="$PROJECT_DIR$/pigx-visual/pom.xml" />
+        <option value="$PROJECT_DIR$/wisdom/pom.xml" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/classes" />
+  </component>
+  <component name="SvnBranchConfigurationManager">
+    <option name="myConfigurationMap">
+      <map>
+        <entry key="$PROJECT_DIR$">
+          <value>
+            <SvnBranchConfiguration>
+              <option name="trunkUrl" value="svn://47.110.144.53/barcode/code/cfmoto" />
+            </SvnBranchConfiguration>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

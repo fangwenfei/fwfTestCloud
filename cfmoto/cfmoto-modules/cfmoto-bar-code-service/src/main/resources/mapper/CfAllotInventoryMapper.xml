@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cfmoto.bar.code.mapper.CfAllotInventoryMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cfmoto.bar.code.model.entity.CfAllotInventory">
+        <id column="allot_inventory_id" property="allotInventoryId" />
+        <result column="order_no" property="orderNo" />
+        <result column="order_type" property="orderType" />
+        <result column="materials_name" property="materialsName" />
+        <result column="materials_no" property="materialsNo" />
+        <result column="spec" property="spec" />
+        <result column="allot_out_warehouse" property="allotOutWarehouse" />
+        <result column="allot_in_warehouse" property="allotInWarehouse" />
+        <result column="sp_store_position_no" property="spStorePositionNo" />
+        <result column="number" property="number" />
+        <result column="allot_out_scanned_number" property="allotOutScannedNumber" />
+        <result column="allot_in_scanned_number" property="allotInScannedNumber" />
+        <result column="dept" property="dept" />
+        <result column="made_order_date" property="madeOrderDate" />
+        <result column="customer_name" property="customerName" />
+        <result column="receive_address" property="receiveAddress" />
+        <result column="receive_contact_name" property="receiveContactName" />
+        <result column="receive_contact_phone_number" property="receiveContactPhoneNumber" />
+        <result column="sale_order_no" property="saleOrderNo" />
+        <result column="addresser" property="addresser" />
+        <result column="addresser_phone_number" property="addresserPhoneNumber" />
+        <result column="inland_or_abroad" property="inlandOrAbroad" />
+        <result column="minimum_package_number" property="minimumPackageNumber" />
+        <result column="sale_price" property="salePrice" />
+        <result column="business_stream_order_no" property="businessStreamOrderNo" />
+        <result column="english_name" property="englishName" />
+        <result column="allot_info_id" property="allotInfoId" />
+        <result column="created_by" property="createdBy" />
+        <result column="creation_date" property="creationDate" />
+        <result column="last_updated_by" property="lastUpdatedBy" />
+        <result column="last_update_date" property="lastUpdateDate" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        allot_inventory_id AS allotInventoryId, order_no AS orderNo, order_type AS orderType, materials_name AS materialsName, materials_no AS materialsNo, spec, allot_out_warehouse AS allotOutWarehouse, allot_in_warehouse AS allotInWarehouse, sp_store_position_no AS spStorePositionNo, number, allot_out_scanned_number AS allotOutScannedNumber, allot_in_scanned_number AS allotInScannedNumber, dept, made_order_date AS madeOrderDate, customer_name AS customerName, receive_address AS receiveAddress, receive_contact_name AS receiveContactName, receive_contact_phone_number AS receiveContactPhoneNumber, sale_order_no AS saleOrderNo, addresser, addresser_phone_number AS addresserPhoneNumber, inland_or_abroad AS inlandOrAbroad, minimum_package_number AS minimumPackageNumber, sale_price AS salePrice, business_stream_order_no AS businessStreamOrderNo, english_name AS englishName, allot_info_id AS allotInfoId, created_by AS createdBy, creation_date AS creationDate, last_updated_by AS lastUpdatedBy, last_update_date AS lastUpdateDate
+    </sql>
+
+</mapper>

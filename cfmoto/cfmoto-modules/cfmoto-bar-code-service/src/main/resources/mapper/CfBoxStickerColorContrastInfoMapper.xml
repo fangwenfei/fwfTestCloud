@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cfmoto.bar.code.mapper.CfBoxStickerColorContrastInfoMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cfmoto.bar.code.model.entity.CfBoxStickerColorContrastInfo">
+        <id column="cf_box_sticker_color_contrast_info_id" property="cfBoxStickerColorContrastInfoId"/>
+        <result column="publicity_color" property="publicityColor"/>
+        <result column="ok_color" property="okColor"/>
+        <result column="english_color" property="englishColor"/>
+        <result column="created_by" property="createdBy"/>
+        <result column="creation_date" property="creationDate"/>
+        <result column="last_updated_by" property="lastUpdatedBy"/>
+        <result column="last_update_date" property="lastUpdateDate"/>
+    </resultMap>
+
+</mapper>

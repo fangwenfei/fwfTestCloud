@@ -1,0 +1,67 @@
+#sap连接配置
+sap:
+  jco:
+    provider:
+      destName: ABAP
+      ashost: 172.16.0.225
+      sysnr: 02
+      client: 500
+      user: space
+      passwd: 1234567
+      pool_capacity: 10
+      peak_limit: 50
+      saprouter: "/H/116.62.119.46/S/3299/H/"
+      lang: zh
+
+server:
+  port: 9207
+spring:
+  application:
+    name: cfmoto-sap-api
+  redis:
+    remote: false        #cachecloud  获取
+    host: 192.168.1.192
+    port: 6379
+feign:
+  hystrix:
+    enabled: true
+  okhttp:
+    enabled: true
+  httpclient:
+    enabled: false
+  client:
+    config:
+      feignName:
+        connectTimeout: 30000
+        readTimeout: 30000
+  compression:
+    request:
+      enabled: true
+    response:
+      enabled: true
+
+hystrix:
+  threadpool:
+    default:
+      coreSize: 500
+      maxQueueSize: 1000
+      queueSizeRejectionThreshold: 800
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    serviceUrl:
+      defaultZone: http://cfmoto:cfmoto6666@cfmoto-eureka:9201/eureka/
+    registry-fetch-interval-seconds: 10
+#切面添加用户名的sap接口名配置
+pig:
+  sapaop:
+    interceptorFunctionNames:
+      ZMM_BC_003,ZMM_BC_005,ZMM_BC_006,ZMM_BC_009,ZMM_BC_012,ZMM_BC_013,ZMM_BC_014,ZMM_BC_016,ZMM_BC_018,ZMM_BC_019,ZMM_BC_022,ZMM_BC_025,ZMM_BC_026,ZMM_BC_030,ZMM_BC_031,ZMM_BC_032,ZMM_BC_033,ZMM_BC_036
+

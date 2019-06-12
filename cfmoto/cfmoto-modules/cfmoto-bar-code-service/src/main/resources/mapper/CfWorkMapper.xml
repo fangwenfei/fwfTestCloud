@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cfmoto.bar.code.mapper.CfWorkMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cfmoto.bar.code.model.entity.CfWork">
+        <id column="work_id" property="workId" />
+        <result column="process_no" property="processNo" />
+        <result column="production_task" property="productionTask" />
+        <result column="process_date" property="processDate" />
+        <result column="object_version_number" property="objectVersionNumber" />
+        <result column="created_by" property="createdBy" />
+        <result column="creation_date" property="creationDate" />
+        <result column="last_updated_by" property="lastUpdatedBy" />
+        <result column="last_update_date" property="lastUpdateDate" />
+        <result column="work_number" property="workNumber" />
+        <result column="scrap_number" property="scrapNumber" />
+        <result column="confirm_number" property="confirmNumber" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        work_id AS workId, process_no AS processNo, production_task AS productionTask, process_date AS processDate, object_version_number AS objectVersionNumber, created_by AS createdBy, creation_date AS creationDate, last_updated_by AS lastUpdatedBy, last_update_date AS lastUpdateDate, work_number AS workNumber, scrap_number AS scrapNumber, confirm_number AS confirmNumber
+    </sql>
+
+</mapper>

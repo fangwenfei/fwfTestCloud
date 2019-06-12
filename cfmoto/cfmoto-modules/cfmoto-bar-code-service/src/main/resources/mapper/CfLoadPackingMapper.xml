@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cfmoto.bar.code.mapper.CfLoadPackingMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cfmoto.bar.code.model.entity.CfLoadPacking">
+        <id column="load_packing_id" property="loadPackingId" />
+        <result column="sales_order_no" property="salesOrderNo" />
+        <result column="document_no" property="documentNo" />
+        <result column="country" property="country" />
+        <result column="model" property="model" />
+        <result column="material_no" property="materialNo" />
+        <result column="material_number" property="materialNumber" />
+        <result column="load_number" property="loadNumber" />
+        <result column="printing_number" property="printingNumber" />
+        <result column="created_by" property="createdBy" />
+        <result column="creation_date" property="creationDate" />
+        <result column="last_updated_by" property="lastUpdatedBy" />
+        <result column="last_update_date" property="lastUpdateDate" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        load_packing_id AS loadPackingId, sales_order_no AS salesOrderNo, document_no AS documentNo, country, model, material_no AS materialNo, material_number AS materialNumber, load_number AS loadNumber, printing_number AS printingNumber, created_by AS createdBy, creation_date AS creationDate, last_updated_by AS lastUpdatedBy, last_update_date AS lastUpdateDate
+    </sql>
+
+    <resultMap id="SelectListResultMap" type="com.cfmoto.bar.code.model.dto.SelectList">
+        <result column="select_key" property="selectKey" />
+        <result column="select_value" property="selectValue" />
+        <result column="select_description" property="selectDescription" />
+    </resultMap>
+
+    <select id="selectAllSalesOrderNo" resultMap="SelectListResultMap">
+         select lp.sales_order_no as select_key  from cf_load_packing lp GROUP BY lp.sales_order_no
+    </select>
+    <select id="selectDocumentNoBySalesOrderNo" resultMap="SelectListResultMap">
+        SELECT
+            lp.document_no as select_key ,
+            lp.document_no as select_value ,
+            lp.document_no as select_description
+        FROM
+            cf_load_packing lp
+        WHERE
+            lp.sales_order_no = #{salesOrderNo}
+        GROUP BY
+            lp.document_no
+    </select>
+
+
+</mapper>

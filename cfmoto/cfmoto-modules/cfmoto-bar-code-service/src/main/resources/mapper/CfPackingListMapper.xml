@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cfmoto.bar.code.mapper.CfPackingListMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cfmoto.bar.code.model.entity.CfPackingList">
+        <id column="packing_list_id" property="packingListId" />
+        <result column="order_no" property="orderNo" />
+        <result column="sale_order" property="saleOrder" />
+        <result column="item" property="item" />
+        <result column="item_desc" property="itemDesc" />
+        <result column="mode" property="mode" />
+        <result column="case_no" property="caseNo" />
+        <result column="qty" property="qty" />
+        <result column="business_order" property="businessOrder" />
+        <result column="created_by" property="createdBy" />
+        <result column="creation_date" property="creationDate" />
+        <result column="last_updated_by" property="lastUpdatedBy" />
+        <result column="last_update_date" property="lastUpdateDate" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        packing_list_id AS packingListId, order_no AS orderNo, sale_order AS saleOrder, item, item_desc AS itemDesc, mode, case_no AS caseNo, qty, business_order AS businessOrder, created_by AS createdBy, creation_date AS creationDate, last_updated_by AS lastUpdatedBy, last_update_date AS lastUpdateDate
+    </sql>
+
+    <!-- 存在更新，不存在插入-->
+    <insert id="packListInsertOrSaveBatch" parameterType="java.util.List">
+        insert into cf_packing_list(
+        packing_list_id,order_no,sale_order,item,item_desc,mode,case_no,qty,business_order,created_by,creation_date,last_updated_by,last_update_date
+        )VALUES
+        <foreach collection ="list" item="item" index= "index" separator =",">
+            (
+            #{item.packingListId}, #{item.orderNo}, #{item.saleOrder},
+            #{item.item}, #{item.itemDesc}, #{item.mode},
+            #{item.caseNo}, #{item.qty}, #{item.businessOrder},
+            #{item.createdBy}, #{item.creationDate}, #{item.lastUpdatedBy},
+            #{item.lastUpdateDate}
+            )
+        </foreach>
+        ON DUPLICATE KEY UPDATE
+        qty=qty+VALUES( qty ) ,last_updated_by = VALUES(last_updated_by),
+        last_update_date = VALUES(last_update_date)
+    </insert>
+
+</mapper>

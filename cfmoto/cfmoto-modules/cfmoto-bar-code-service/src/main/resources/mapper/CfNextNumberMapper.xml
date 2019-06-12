@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cfmoto.bar.code.mapper.CfNextNumberMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cfmoto.bar.code.model.entity.CfNextNumber">
+        <id column="handle" property="handle" />
+        <result column="change_stamp" property="changeStamp" />
+        <result column="next_number_type" property="nextNumberType" />
+        <result column="description" property="description" />
+        <result column="prefix" property="prefix" />
+        <result column="suffix" property="suffix" />
+        <result column="sequence_base" property="sequenceBase" />
+        <result column="max_sequence" property="maxSequence" />
+        <result column="sequence_length" property="sequenceLength" />
+        <result column="current_sequence" property="currentSequence" />
+        <result column="next_number_format" property="nextNumberFormat" />
+        <result column="min_sequence" property="minSequence" />
+        <result column="incr" property="incr" />
+        <result column="warning_threshold" property="warningThreshold" />
+        <result column="reset" property="reset" />
+        <result column="commit_immediately" property="commitImmediately" />
+        <result column="created_by" property="createdBy" />
+        <result column="creation_date" property="creationDate" />
+        <result column="last_updated_by" property="lastUpdatedBy" />
+        <result column="last_update_date" property="lastUpdateDate" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        handle, change_stamp AS changeStamp, next_number_type AS nextNumberType, description, prefix, suffix, sequence_base AS sequenceBase, max_sequence AS maxSequence, sequence_length AS sequenceLength, current_sequence AS currentSequence, next_number_format AS nextNumberFormat, min_sequence AS minSequence, incr, warning_threshold AS warningThreshold, reset, commit_immediately AS commitImmediately, created_by AS createdBy, creation_date AS creationDate, last_updated_by AS lastUpdatedBy, last_update_date AS lastUpdateDate
+    </sql>
+
+    <!--行锁查询-->
+    <select id="selectByIdForUpdate" resultMap="BaseResultMap">
+        SELECT *
+        FROM cf_next_number
+        WHERE handle = #{handle}
+        FOR UPDATE
+    </select>
+
+    <select id="selectIdentical" resultMap="BaseResultMap">
+        SELECT handle
+        FROM cf_next_number
+        WHERE handle != #{handle}
+        AND prefix = #{prefix,jdbcType=NVARCHAR}
+        AND suffix = #{suffix,jdbcType=NVARCHAR}
+        <if test='forUpdate == true'>
+            FOR UPDATE
+        </if>
+    </select>
+
+</mapper>

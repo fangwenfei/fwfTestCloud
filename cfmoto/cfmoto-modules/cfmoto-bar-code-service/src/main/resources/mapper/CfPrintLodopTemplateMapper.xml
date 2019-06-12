@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cfmoto.bar.code.mapper.CfPrintLodopTemplateMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cfmoto.bar.code.model.entity.CfPrintLodopTemplate">
+        <id column="print_lodop_id" property="printLodopId" />
+        <result column="function_id" property="functionId" />
+        <result column="print_lodop_template" property="printLodopTemplate" />
+        <result column="print_lodop_template_name" property="printLodopTemplateName" />
+        <result column="print_lodop_template_depiction" property="printLodopTemplateDepiction" />
+        <result column="created_by" property="createdBy" />
+        <result column="creation_date" property="creationDate" />
+        <result column="last_updated_by" property="lastUpdatedBy" />
+        <result column="last_update_date" property="lastUpdateDate" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        print_lodop_id AS printLodopId, function_id AS functionId, print_lodop_template AS printLodopTemplate, print_lodop_template_name AS printLodopTemplateName, print_lodop_template_depiction AS printLodopTemplateDepiction, created_by AS createdBy, creation_date AS creationDate, last_updated_by AS lastUpdatedBy, last_update_date AS lastUpdateDate
+    </sql>
+
+</mapper>

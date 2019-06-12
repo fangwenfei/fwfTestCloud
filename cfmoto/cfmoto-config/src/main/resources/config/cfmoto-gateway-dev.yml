@@ -1,0 +1,76 @@
+server:
+  port: 9204
+
+spring:
+  application:
+    name: cfmoto-gateway
+  zipkin:
+    rabbitmq:
+      queue: zipkin
+  sleuth:
+    sampler:
+      percentage: 0.2
+#限流配置 以下配置意思是：30秒内允许10个访问，并且要求总请求时间小于20秒
+zuul:
+  routes:
+    cfmoto-auth:
+      auth-service: /cfmoto-auth/**
+      sensitiveHeaders: "*"
+      serviceId: cfmoto-auth
+  ribbon:
+    eager-load:
+      enabled: true
+      clients: cfmoto-auth,cfmoto-upms-service,cfmoto-demo-service
+  ignoredServices: '*'
+  host:
+    connect-timeout-millis: 10000
+    socket-timeout-millis: 10000
+  ratelimit:
+    key-prefix: cfmoto-ratelimite
+    enabled: true
+    repository: REDIS
+    behind-proxy: true
+    policies:
+      cfmoto-upms-service:
+        limit: 100    #limit 单位时间内允许访问的个数
+        quota: 100    #quota 单位时间内允许访问的总时间（统计每次请求的时间综合）
+        refresh-interval: 3  #refresh-interval 单位时间设置
+
+security:
+  auth:
+    server: http://cfmoto-auth:9203     #如果是本地就http://localhost:9203
+  encode:
+    key: '1234567887654321' #必须16位
+  validate:
+    code: true
+    preview: false
+  sessions: stateless
+  oauth2:
+    client:
+      client-id: pig
+      client-secret: pig
+      user-authorization-uri: http://cfmoto-gateway:${server.port}/cfmoto-auth/oauth/authorize     #如果是本地就http://localhost
+      access-token-uri: http://cfmoto-gateway:${server.port}/cfmoto-auth/oauth/token                #如果是本地就http://localhost
+    resource:
+      jwt:
+         key-uri: ${security.auth.server}/oauth/token_key #解析jwt令牌所需要密钥的地址
+
+ignore:
+  urls:
+    - /mobile/**
+    - /auth/**
+    - /admin/code/*
+    - /admin/smsCode/*
+    - /admin/user/info
+    - /admin/menu/userMenu
+    - /swagger-resources/**
+    - /swagger-ui.html
+    - /*/v2/api-docs
+    - /swagger/api-docs
+    - /webjars/**
+    - /bar-code/*/export/**
+    - /admin/menu/userAppMenu
+  clients:
+    - app
+logging:
+  level: error

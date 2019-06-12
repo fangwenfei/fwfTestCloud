@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cfmoto.bar.code.mapper.CfOrderScanTempMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cfmoto.bar.code.model.entity.CfOrderScanTemp">
+        <id column="order_scan_temp_id" property="orderScanTempId" />
+        <result column="order_sum_temp_id_ref" property="orderSumTempIdRef" />
+        <result column="row_item" property="rowItem" />
+        <result column="order_temp_id_ref" property="orderTempIdRef" />
+        <result column="item" property="item" />
+        <result column="item_desc" property="itemDesc" />
+        <result column="item_purpose" property="itemPurpose" />
+        <result column="mode" property="mode" />
+        <result column="barcode" property="barcode" />
+        <result column="batch_no" property="batchNo" />
+        <result column="quantity" property="quantity" />
+        <result column="storage_location" property="storageLocation" />
+        <result column="storage_area" property="storageArea" />
+        <result column="storage_position" property="storagePosition" />
+        <result column="vendor" property="vendor" />
+        <result column="status" property="status" />
+        <result column="created_by" property="createdBy" />
+        <result column="creation_date" property="creationDate" />
+        <result column="last_updated_by" property="lastUpdatedBy" />
+        <result column="last_update_date" property="lastUpdateDate" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        order_scan_temp_id AS orderScanTempId, order_sum_temp_id_ref AS orderSumTempIdRef, row_item AS rowItem, order_temp_id_ref AS orderTempIdRef, item, item_desc AS itemDesc, item_purpose AS itemPurpose, mode, barcode, batch_no AS batchNo, quantity, storage_location AS storageLocation, storage_area AS storageArea, storage_position AS storagePosition, vendor, status, created_by AS createdBy, creation_date AS creationDate, last_updated_by AS lastUpdatedBy, last_update_date AS lastUpdateDate
+    </sql>
+
+    <insert id="insert" parameterType="com.cfmoto.bar.code.model.entity.CfOrderScanTemp">
+        insert into cf_order_scan_temp ( order_scan_temp_id,order_sum_temp_id_ref,row_item,order_temp_id_ref,item,item_desc,item_purpose,mode,
+        barcode,batch_no,quantity ,storage_location,storage_area,storage_position,vendor,status,created_by,creation_date,last_updated_by,
+        last_update_date )
+        values( #{orderScanTempId},#{orderSumTempIdRef},#{rowItem},#{orderTempIdRef},#{item},#{itemDesc},#{itemPurpose},#{mode},#{barcode},
+        #{batchNo},#{quantity},#{storageLocation},#{storageArea},#{storagePosition},#{vendor},#{status},#{createdBy},#{creationDate},
+        #{lastUpdatedBy},#{lastUpdateDate} )
+    </insert>
+
+</mapper>

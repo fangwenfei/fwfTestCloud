@@ -1,0 +1,19 @@
+spring:
+  devtools:
+    restart:
+      enabled: true  #设置开启热部署
+  cloud:
+    config:
+      fail-fast: true
+      name: cfmoto-bar-code-service
+      profile: dev
+      discovery:
+        enabled: true
+        service-id: cfmoto-config
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    serviceUrl:
+      defaultZone: http://cfmoto:cfmoto6666@cfmoto-eureka:9201/eureka/
+    registry-fetch-interval-seconds: 10

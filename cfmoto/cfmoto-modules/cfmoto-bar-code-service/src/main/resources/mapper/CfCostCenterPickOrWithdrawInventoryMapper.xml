@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cfmoto.bar.code.mapper.CfCostCenterPickOrWithdrawInventoryMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cfmoto.bar.code.model.entity.CfCostCenterPickOrWithdrawInventory">
+        <id column="cost_center_pick_or_withdraw_inventory_id" property="costCenterPickOrWithdrawInventoryId" />
+        <result column="order_no" property="orderNo" />
+        <result column="order_type" property="orderType" />
+        <result column="materials_name" property="materialsName" />
+        <result column="materials_no" property="materialsNo" />
+        <result column="spec" property="spec" />
+        <result column="warehouse" property="warehouse" />
+        <result column="storage_area" property="storageArea" />
+        <result column="withdraw_warehouse" property="withdrawWarehouse" />
+        <result column="should_pick_or_withdraw_number" property="shouldPickOrWithdrawNumber" />
+        <result column="scanned_number" property="scannedNumber" />
+        <result column="sp_store_position_no" property="spStorePositionNo" />
+        <result column="created_by" property="createdBy" />
+        <result column="creation_date" property="creationDate" />
+        <result column="last_updated_by" property="lastUpdatedBy" />
+        <result column="last_update_date" property="lastUpdateDate" />
+        <result column="cost_center_pick_or_withdraw_info_id" property="costCenterPickOrWithdrawInfoId" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        cost_center_pick_or_withdraw_inventory_id AS costCenterPickOrWithdrawInventoryId, order_no AS orderNo, order_type AS orderType, materials_name AS materialsName, materials_no AS materialsNo, spec, warehouse, storage_area AS storageArea, withdraw_warehouse AS withdrawWarehouse, should_pick_or_withdraw_number AS shouldPickOrWithdrawNumber, scanned_number AS scannedNumber, sp_store_position_no AS spStorePositionNo, created_by AS createdBy, creation_date AS creationDate, last_updated_by AS lastUpdatedBy, last_update_date AS lastUpdateDate, cost_center_pick_or_withdraw_info_id AS costCenterPickOrWithdrawInfoId
+    </sql>
+
+</mapper>

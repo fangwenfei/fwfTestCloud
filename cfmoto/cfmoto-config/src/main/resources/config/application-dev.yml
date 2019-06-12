@@ -1,0 +1,92 @@
+#加密配置
+jasypt:
+  encryptor:
+    password: lengleng
+
+server:
+  tomcat:
+    max-threads: 500 # Maximum amount of worker threads.
+    min-spare-threads: 50 # Minimum amount of worker threads
+    max-http-header-size: 8192
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.1.192:3306/cfmoto?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowMultiQueries=true
+    username: root
+    password: 1234
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      minimum-idle: 5
+      maximum-pool-size: 15
+      auto-commit: true
+      idle-timeout: 30000
+      pool-name: DatebookHikariCP
+      max-lifetime: 1800000
+      connection-timeout: 30000
+      connection-test-query: SELECT 1
+  redis:
+    remote: false        #cachecloud  获取
+    host: 192.168.1.192
+    port: 6379
+  rabbitmq:
+    host: 47.110.251.164
+    port: 5672
+    username: XRom
+    password: XRom123
+  http:
+    multipart:
+      max-file-size: 1000MB
+      max-request-size: 1000MB
+redis:
+  cache:
+    expiration: 3601
+ribbon:
+  eager-load:
+    enabled: true
+    clients: cfmoto-auth,cfmoto-upms-service,cfmoto-bar-code-service
+  Httpclient:
+    enabled: true
+  OkHttp:
+    enabled: false
+  ReadTimeout: 100000
+  ConnectTimeout: 100000
+feign:
+  hystrix:
+    enabled: true
+  okhttp:
+    enabled: false
+  httpclient:
+    enabled: true
+  client:
+    config:
+      feignName:
+        connectTimeout: 30000
+        readTimeout: 30000
+  compression:
+    request:
+      enabled: true
+    response:
+      enabled: true
+
+hystrix:
+  threadpool:
+    default:
+      coreSize: 500
+      maxQueueSize: 1000
+      queueSizeRejectionThreshold: 80000
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 600000
+
+#监控短点配置
+management:
+  security:
+    enabled: false
+endpoints:
+  actuator:
+    enabled: true
+  shutdown:
+    enabled: false

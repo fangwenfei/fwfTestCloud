@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cfmoto.bar.code.mapper.CfDeliverGoodsSumMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cfmoto.bar.code.model.entity.CfDeliverGoodsSum">
+        <id column="deliver_goods_sum_id" property="deliverGoodsSumId" />
+        <result column="deliver_goods_id_ref" property="deliverGoodsIdRef" />
+        <result column="row_item" property="rowItem" />
+        <result column="case_no" property="caseNo" />
+        <result column="qty" property="qty" />
+        <result column="sale_order" property="saleOrder" />
+        <result column="customer" property="customer" />
+        <result column="created_by" property="createdBy" />
+        <result column="creation_date" property="creationDate" />
+        <result column="last_updated_by" property="lastUpdatedBy" />
+        <result column="last_update_date" property="lastUpdateDate" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        deliver_goods_sum_id AS deliverGoodsSumId, deliver_goods_id_ref AS deliverGoodsIdRef, row_item AS rowItem, case_no AS caseNo, qty, sale_order AS saleOrder, customer, created_by AS createdBy, creation_date AS creationDate, last_updated_by AS lastUpdatedBy, last_update_date AS lastUpdateDate
+    </sql>
+
+    <insert id="saveSumBatch" parameterType = "java.util.List">
+        insert into cf_deliver_goods_sum ( deliver_goods_sum_id, deliver_goods_id_ref, row_item, case_no, qty, sale_order, customer,
+         created_by, creation_date, last_updated_by, last_update_date )
+        VALUES
+        <foreach collection="list" index="index" item="item" separator=",">
+            (#{item.deliverGoodsSumId}, #{item.deliverGoodsIdRef}, #{item.rowItem}, #{item.caseNo}, #{item.qty},
+            #{item.saleOrder}, #{item.customer},  #{item.createdBy}, #{item.creationDate},
+            #{item.lastUpdatedBy}, #{item.lastUpdateDate})
+        </foreach>
+    </insert>
+
+</mapper>

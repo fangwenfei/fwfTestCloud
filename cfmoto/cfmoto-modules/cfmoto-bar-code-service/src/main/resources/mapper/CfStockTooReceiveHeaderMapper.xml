@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cfmoto.bar.code.mapper.CfStockTooReceiveHeaderMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cfmoto.bar.code.model.entity.CfStockTooReceiveHeader">
+        <id column="stock_header_id" property="stockHeaderId" />
+        <result column="stock_root_id" property="stockRootId" />
+        <result column="stock_list_no" property="stockListNo" />
+        <result column="materials_name" property="materialsName" />
+        <result column="materials_no" property="materialsNo" />
+        <result column="spec" property="spec" />
+        <result column="repository" property="repository" />
+        <result column="storage_area" property="storageArea" />
+        <result column="should_send_number" property="shouldSendNumber" />
+        <result column="actual_send_number" property="actualSendNumber" />
+        <result column="stock_handover_number" property="stockHandoverNumber" />
+        <result column="picked_handover_number" property="pickedHandoverNumber" />
+        <result column="remark" property="remark" />
+        <result column="created_by" property="createdBy" />
+        <result column="creation_date" property="creationDate" />
+        <result column="last_updated_by" property="lastUpdatedBy" />
+        <result column="last_updated_date" property="lastUpdatedDate" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        stock_header_id AS stockHeaderId, stock_root_id AS stockRootId, stock_list_no AS stockListNo, materials_name AS materialsName, materials_no AS materialsNo, spec, repository, storage_area AS storageArea, should_send_number AS shouldSendNumber, actual_send_number AS actualSendNumber, stock_handover_number AS stockHandoverNumber, picked_handover_number AS pickedHandoverNumber, remark, created_by AS createdBy, creation_date AS creationDate, last_updated_by AS lastUpdatedBy, last_updated_date AS lastUpdatedDate
+    </sql>
+
+</mapper>

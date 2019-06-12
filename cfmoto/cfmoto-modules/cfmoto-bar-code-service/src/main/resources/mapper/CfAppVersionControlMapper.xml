@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cfmoto.bar.code.mapper.CfAppVersionControlMapper">
+
+
+    <!-- 设置所有版本记录不为最新版本 -->
+    <update id="setAllRecordNotUpToDate">
+        update cf_app_version_control
+        set is_up_to_date = 0 where is_up_to_date = 1;
+    </update>
+</mapper>

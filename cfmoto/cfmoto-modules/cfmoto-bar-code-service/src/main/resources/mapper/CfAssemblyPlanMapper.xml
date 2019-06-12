@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cfmoto.bar.code.mapper.CfAssemblyPlanMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cfmoto.bar.code.model.entity.CfAssemblyPlan">
+        <id column="assembly_id" property="assemblyId" />
+        <result column="country" property="country" />
+        <result column="assembly_number" property="assemblyNumber" />
+        <result column="model" property="model" />
+        <result column="assembly_materials" property="assemblyMaterials" />
+        <result column="son_material" property="sonMaterial" />
+        <result column="son_material_number" property="sonMaterialNumber" />
+        <result column="remarks" property="remarks" />
+        <result column="import_time" property="importTime" />
+        <result column="import_user" property="importUser" />
+        <result column="created_by" property="createdBy" />
+        <result column="creation_date" property="creationDate" />
+        <result column="last_updated_by" property="lastUpdatedBy" />
+        <result column="last_update_date" property="lastUpdateDate" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        assembly_id AS assemblyId, assembly_number as assemblyNumber, country, model, assembly_materials AS assemblyMaterials, son_material AS sonMaterial, son_material_number AS sonMaterialNumber, remarks, import_time AS importTime, import_user AS importUser, created_by AS createdBy, creation_date AS creationDate, last_updated_by AS lastUpdatedBy, last_update_date AS lastUpdateDate
+    </sql>
+
+    <resultMap id="SelectListResultMap" type="com.cfmoto.bar.code.model.dto.SelectList">
+        <result column="select_key" property="selectKey" />
+        <result column="select_value" property="selectValue" />
+        <result column="select_description" property="selectDescription" />
+    </resultMap>
+
+    <select id="selectAllCountry" resultMap="SelectListResultMap">
+       select m.country as select_key   from cf_assembly_plan m GROUP BY m.country
+    </select>
+    <select id="selectModelByCountry" resultMap="SelectListResultMap">
+        select m.model as select_key   from cf_assembly_plan m where m.country=#{country} GROUP BY m.model
+    </select>
+
+
+</mapper>

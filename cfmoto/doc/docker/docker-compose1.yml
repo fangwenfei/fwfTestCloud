@@ -1,0 +1,158 @@
+#//https://blog.csdn.net/huangliuyu00/article/details/84945268
+version: '2'
+networks:
+  net-docker-cfmoto:
+    driver: bridge
+services:
+  elasticsearch:
+    image: elasticsearch
+    environment:
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    volumes:
+      - $PWD/elasticsearch/data:/usr/share/elasticsearch/data
+    hostname: elasticsearch
+    restart: always
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    networks:
+      - net-docker-cfmoto
+  kibana:
+    image: kibana
+    environment:
+      - ELASTICSEARCH_URL=http://elasticsearch:9200 #elasticsearch查询接口地址
+    hostname: kibana
+    depends_on:
+      - elasticsearch  #后于elasticsearch启动
+    restart: always
+    ports:
+      - "5601:5601"
+    networks:
+      - net-docker-cfmoto
+  logstash:
+    image: logstash
+    command: logstash -f /etc/logstash/conf.d/logstash.conf  #logstash 启动时使用的配置文件
+    volumes:
+      - $PWD/logstash/conf.d:/etc/logstash/conf.d  #logstash 配文件位置
+      - $PWD/logst:/tmp
+    hostname: logstash
+    restart: always
+    depends_on:
+      - elasticsearch  #后于elasticsearch启动
+    ports:
+      - "7001-7005:7001-7005"
+      - "4560:4560"
+      - "9600:9600"
+    networks:
+      - net-docker-cfmoto
+#++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  cfmoto-eureka:
+    build:
+      context: ./
+      dockerfile: Dockerfile-eureka
+    restart: always
+    volumes:
+      - ./elasticsearch/data:/logs
+    ports:
+      - 9201:9201
+    networks:
+      - net-docker-cfmoto
+
+  cfmoto-config:
+    depends_on:
+      - cfmoto-eureka
+    build:
+      context: ./
+      dockerfile: Dockerfile-config
+    restart: always
+    volumes:
+      - ./elasticsearch/data:/logs
+    networks:
+      - net-docker-cfmoto
+
+  cfmoto-gateway:
+    depends_on:
+      - cfmoto-eureka
+      - cfmoto-auth
+    build:
+      context: ./
+      dockerfile: Dockerfile-gateway
+    restart: always
+    volumes:
+      - ./elasticsearch/data:/logs
+    ports:
+      - 9204:9204
+    networks:
+      - net-docker-cfmoto
+
+  cfmoto-auth:
+    depends_on:
+      - cfmoto-eureka
+    build:
+      context: ./
+      dockerfile: Dockerfile-auth
+    restart: always
+    volumes:
+      - ./elasticsearch/data:/logs
+    ports:
+      - 9203:9203
+    networks:
+      - net-docker-cfmoto
+
+  cfmoto-upms-service:
+    depends_on:
+      - cfmoto-eureka
+    build:
+      context: ./
+      dockerfile: Dockerfile-upms-1
+    restart: always
+    volumes:
+      - ./elasticsearch/data:/logs
+    networks:
+      - net-docker-cfmoto
+
+  cfmoto-bar-code-service:
+    depends_on:
+      - cfmoto-eureka
+    build:
+      context: ./
+      dockerfile: Dockerfile-bar-code
+    restart: always
+    volumes:
+      - ./elasticsearch/data:/logs
+    ports:
+      - 9206:9206
+    networks:
+      - net-docker-cfmoto
+
+  cfmoto-sap-api-1:
+    depends_on:
+      - cfmoto-eureka
+    build:
+      context: ./
+      dockerfile: Dockerfile-cfmoto-sap-api-1
+    restart: always
+    volumes:
+      - ./elasticsearch/data:/logs
+    ports:
+      - 9207:9207
+    networks:
+      - net-docker-cfmoto
+    expose:
+      - 9207
+
+  cfmoto-sap-api-2:
+    depends_on:
+      - cfmoto-eureka
+    build:
+      context: ./
+      dockerfile: Dockerfile-cfmoto-sap-api-2
+    restart: always
+    volumes:
+      - ./elasticsearch/data:/logs
+    ports:
+      - 9208:9207
+    networks:
+      - net-docker-cfmoto
+    expose:
+      - 9208

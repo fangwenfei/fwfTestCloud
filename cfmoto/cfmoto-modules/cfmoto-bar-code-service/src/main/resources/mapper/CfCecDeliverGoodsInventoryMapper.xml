@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cfmoto.bar.code.mapper.CfCecDeliverGoodsInventoryMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cfmoto.bar.code.model.entity.CfCecDeliverGoodsInventory">
+        <id column="inventory_id" property="inventoryId" />
+        <result column="deliver_order_no" property="deliverOrderNo" />
+        <result column="sales_order_no" property="salesOrderNo" />
+        <result column="row_item" property="rowItem" />
+        <result column="materials_no" property="materialsNo" />
+        <result column="materials_name" property="materialsName" />
+        <result column="spec" property="spec" />
+        <result column="number" property="number" />
+        <result column="scanned_number" property="scannedNumber" />
+        <result column="warehouse" property="warehouse" />
+        <result column="created_by" property="createdBy" />
+        <result column="creation_date" property="creationDate" />
+        <result column="last_updated_by" property="lastUpdatedBy" />
+        <result column="last_update_date" property="lastUpdateDate" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        inventory_id AS inventoryId, deliver_order_no AS deliverOrderNo, sales_order_no AS salesOrderNo, row_item AS rowItem, materials_no AS materialsNo, materials_name AS materialsName, spec, number, scanned_number AS scannedNumber, warehouse, created_by AS createdBy, creation_date AS creationDate, last_updated_by AS lastUpdatedBy, last_update_date AS lastUpdateDate
+    </sql>
+
+</mapper>

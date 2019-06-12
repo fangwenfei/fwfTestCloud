@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cfmoto.bar.code.mapper.SapJobOrderTempMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cfmoto.bar.code.model.dto.SapJobOrderTemp">
+        <result column="sales_order" property="salesOrder" />
+        <result column="job_order_no" property="jobOrderNo" />
+        <result column="country" property="country" />
+        <result column="model" property="model" />
+        <result column="material_no" property="materialNo" />
+        <result column="material_disc" property="materialDisc" />
+        <result column="job_order_number" property="jobOrderNumber" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        sales_order AS salesOrder, job_order_no AS jobOrderNo, country, model, material_no AS materialNo, material_disc AS materialDisc, job_order_number AS jobOrderNumber
+    </sql>
+
+</mapper>
